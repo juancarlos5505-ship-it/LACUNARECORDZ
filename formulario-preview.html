@@ -4,44 +4,50 @@
   <base target="_blank">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    :root{--text:#e8f4e9;--mute:#8f978a;--accent:#65ff91;--border:#355041;--bg:#141a15;--red:#f1463c}
-    *{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:'Space Grotesk',Arial,sans-serif;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
-    .mono{font-family:'DM Mono',monospace}.intro{padding:20px 0 25px;border-bottom:1px solid var(--border)}.intro h1{font-size:clamp(22px,3.8vw,32px);letter-spacing:-.06em;font-weight:700;line-height:1.05;margin:0 0 10px}.intro p{font-size:12px;color:var(--mute);line-height:1.6;margin:0}.fields{padding-top:22px}.field{margin-bottom:17px}.field label{display:block;font:10px 'DM Mono',monospace;color:#d8e9dc;letter-spacing:.03em;margin-bottom:10px}.field .optional{color:var(--mute)}.field input{width:100%;height:48px;border:1px solid var(--border);border-radius:0;background:#1a261f;color:#f7f7ed;font-family:inherit;font-size:14px;padding:12px 13px;outline:none;transition:border-color .2s,background .2s}.field input:focus{border-color:var(--accent);background:#22342a}.field input::placeholder{color:#7a8475}.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field input:invalid:not(:placeholder-shown){border-color:#bb6854}.checks{margin:18px 0 21px;border-top:1px solid var(--border);padding-top:19px}.check-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:13px}.check-row input{appearance:none;margin:3px 0 0;flex:none;width:18px;height:18px;border:1px solid #687463;cursor:pointer;background:#15221b}.check-row input:checked{background:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 4px #15221b}.check-row label{font-size:11px;line-height:1.45;color:#c3c8bd;cursor:pointer}.check-row label a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}.check-row.secondary label{color:var(--mute)}.privacy{margin:8px 0 18px;padding:15px;background:#18261d;border:1px solid #355041;font-size:11px;line-height:1.6;color:#b6bfb0}.privacy strong{color:#eee}.privacy[hidden]{display:none}.privacy a{color:var(--accent)}.submit{border:0;width:100%;min-height:53px;background:var(--accent);color:#12150f;font:500 11px 'DM Mono',monospace;display:flex;align-items:center;justify-content:space-between;cursor:pointer;letter-spacing:.015em;padding:15px 18px;transition:background .2s}.submit:hover{background:#91ffae}.submit:disabled{opacity:.6;cursor:progress}.submit span:last-child{font-size:23px;line-height:.5}.form-caption{color:#777f73;font:9px/1.6 'DM Mono',monospace;letter-spacing:.02em;margin:15px 0 0}.notice{display:none;padding:13px;font-size:12px;line-height:1.5;margin:14px 0;color:#ffb6a0;background:#351d19;border-left:2px solid var(--red)}.notice.visible{display:block}.success{display:none;text-align:left;padding:45px 6px 30px}.success.visible{display:block}.success-star{font-size:55px;color:var(--accent);line-height:1}.success h2{font-size:40px;line-height:.95;letter-spacing:-.07em;margin:21px 0}.success p{color:#b7c0b0;font-size:14px;line-height:1.6}.success-code{background:#15221b;border:1px solid #4e574a;margin:21px 0 15px;padding:18px;font:20px 'DM Mono',monospace;color:var(--accent);display:flex;align-items:center;justify-content:space-between;gap:10px;word-break:break-all}.copy{border:0;background:transparent;color:var(--accent);font:10px 'DM Mono',monospace;cursor:pointer;padding:5px}.success-foot{font-size:11px!important;line-height:1.7!important}.honeypot{position:absolute;left:-10000px;top:-10000px;width:1px;height:1px}.loading-dot{display:inline-block;animation:blink 1s infinite}@keyframes blink{50%{opacity:.2}}
-    @media(max-width:460px){.field-grid{grid-template-columns:1fr;gap:0}.intro{padding:17px 0 18px}.fields{padding-top:20px}.field{margin-bottom:15px}.field input{height:45px}.check-row label{font-size:10px}.success h2{font-size:32px}}
-    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+    @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Pirata+One&display=swap');
+    :root{--bg:#071009;--panel:rgba(11,16,13,.96);--panel-2:rgba(255,255,255,.03);--line:rgba(255,255,255,.10);--text:#f0f0ea;--mute:#a2aaa3;--green:#5cff92;--red:#ff4f42}
+    *{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:'Archivo',Arial,sans-serif;color:var(--text);background:radial-gradient(circle at 10% 0%,rgba(92,255,146,.07),transparent 25%),radial-gradient(circle at 90% 15%,rgba(255,79,66,.06),transparent 22%),var(--bg);-webkit-font-smoothing:antialiased;padding:24px}.shell{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:26px;padding:18px 18px 22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}.shell-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:20px}.micro{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#d2d7d0;display:inline-flex;align-items:center;gap:10px}.dot{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;box-shadow:0 0 14px rgba(92,255,146,.4)}.dots{display:flex;gap:8px}.dots i{display:block;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.16)}.dots i:first-child{background:var(--red)}.dots i:nth-child(2){background:var(--green)}.intro h1{font-family:'Pirata One',Georgia,serif;font-size:56px;line-height:.88;font-weight:400;margin:0 0 10px}.intro p{font-size:14px;line-height:1.65;color:#cad0ca;margin:0 0 20px}.notice{display:block;padding:12px 14px;font-size:12px;line-height:1.55;margin:0 0 18px;color:#ffd2c7;background:rgba(95,25,21,.38);border-left:3px solid var(--red);border-radius:12px}.fields{display:grid;gap:14px}.field label{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#d9ddd8;margin-bottom:10px}.field .optional{color:var(--mute)}.field input{width:100%;height:54px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.03);color:var(--text);padding:0 16px;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s,background .2s}.field input:focus{border-color:rgba(92,255,146,.55);box-shadow:0 0 0 3px rgba(92,255,146,.09);background:rgba(255,255,255,.05)}.field input::placeholder{color:#7d857d}.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field input:invalid:not(:placeholder-shown){border-color:rgba(255,79,66,.6)}.checks{margin:20px 0;border-top:1px solid var(--line);padding-top:18px}.check-row{display:flex;align-items:flex-start;gap:11px;margin-bottom:14px}.check-row input{appearance:none;margin:4px 0 0;flex:none;width:18px;height:18px;border:1px solid rgba(255,255,255,.22);border-radius:4px;background:#0d1610;cursor:pointer}.check-row input:checked{background:var(--green);border-color:var(--green);box-shadow:inset 0 0 0 4px #0d1610}.check-row label{font-size:12px;line-height:1.55;color:#c7cdc6;cursor:pointer}.check-row label a{color:var(--green);text-decoration:underline;text-underline-offset:3px}.privacy{margin:8px 0 18px;padding:15px 16px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:16px;font-size:12px;line-height:1.65;color:#bbc3ba}.privacy strong{color:#fff}.privacy[hidden]{display:none}.privacy a{color:var(--green)}.submit{border:0;width:100%;min-height:56px;border-radius:18px;background:linear-gradient(180deg,#6bffa2,#4fe484);color:#091109;font:700 11px 'Archivo',Arial,sans-serif;display:flex;align-items:center;justify-content:space-between;cursor:pointer;letter-spacing:.08em;text-transform:uppercase;padding:16px 18px;transition:transform .2s,filter .2s}.submit:hover{transform:translateY(-1px);filter:saturate(1.06)}.submit:disabled{opacity:.65;cursor:progress}.submit span:last-child{font-size:20px;line-height:1}.form-caption{color:#8f978f;font-size:10px;line-height:1.7;letter-spacing:.12em;text-transform:uppercase;margin:15px 0 0}.error-notice{display:none;padding:13px 14px;font-size:12px;line-height:1.55;margin:14px 0;color:#ffcabf;background:rgba(90,28,23,.4);border-left:2px solid var(--red);border-radius:12px}.error-notice.visible{display:block}.success{display:none;padding:40px 6px 16px}.success.visible{display:block}.success-star{font-size:40px;color:var(--green);line-height:1}.success h2{font-family:'Pirata One',Georgia,serif;font-size:58px;line-height:.85;font-weight:400;margin:14px 0 14px}.success p{color:#c3cbc3;font-size:14px;line-height:1.65}.success-code{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:18px;margin:21px 0 15px;padding:18px;display:flex;align-items:center;justify-content:space-between;gap:10px;word-break:break-all}.success-code span{font-size:19px;letter-spacing:.12em;color:var(--green)}.copy{border:0;background:transparent;color:var(--green);font:700 10px 'Archivo',Arial,sans-serif;cursor:pointer;padding:5px;text-transform:uppercase;letter-spacing:.1em}.success-foot{font-size:11px!important;line-height:1.75!important}.honeypot{position:absolute;left:-10000px;top:-10000px;width:1px;height:1px}.loading-dot{display:inline-block;animation:blink 1s infinite}@keyframes blink{50%{opacity:.2}}@media(max-width:620px){body{padding:14px}.shell{padding:14px}.intro h1{font-size:46px}.field-grid{grid-template-columns:1fr}.field input{height:50px}.success h2{font-size:48px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
   </style>
 </head>
 <body>
-  <div id="form-view">
-    <div class="intro"><h1>LISTA DE ACCESO <span style="color:var(--accent)">/ 002</span></h1><p>Completa tu informaci&oacute;n. Un registro, una persona.<br>Los campos marcados con * son obligatorios.</p></div>
+  <div id="form-view" class="shell">
+    <div class="shell-top"><span class="micro"><span class="dot"></span> ENTRA A LA LISTA</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
+    <div class="intro"><h1>Lista de acceso<br>/ 002</h1><p>Completa tu información. Un registro, una persona.<br>Los campos marcados con * son obligatorios.</p></div>
+    <div class="notice">VERSIÓN DE DEMOSTRACIÓN: todavía no está conectado Google Sheets. Aquí no se guardan registros.</div>
     <form id="entry-form">
       <div class="fields">
         <div class="field"><label for="nombre">01 / NOMBRE COMPLETO *</label><input id="nombre" name="nombre" type="text" minlength="3" maxlength="100" placeholder="Tu nombre y apellido" autocomplete="name" required></div>
         <div class="field-grid">
-          <div class="field"><label for="correo">02 / CORREO ELECTR&Oacute;NICO *</label><input id="correo" name="correo" type="email" maxlength="160" placeholder="tu@correo.com" autocomplete="email" required></div>
+          <div class="field"><label for="correo">02 / CORREO ELECTRÓNICO *</label><input id="correo" name="correo" type="email" maxlength="160" placeholder="tu@correo.com" autocomplete="email" required></div>
           <div class="field"><label for="whatsapp">03 / WHATSAPP *</label><input id="whatsapp" name="whatsapp" type="tel" maxlength="24" minlength="10" placeholder="300 000 0000" autocomplete="tel" required></div>
         </div>
         <div class="field"><label for="instagram">04 / INSTAGRAM <span class="optional">(OPCIONAL)</span></label><input id="instagram" name="instagram" type="text" maxlength="45" placeholder="@tuusuario" autocomplete="off"></div>
         <div class="honeypot" aria-hidden="true"><label for="sitioWeb">No completar</label><input id="sitioWeb" name="sitioWeb" type="text" tabindex="-1" autocomplete="off"></div>
       </div>
       <div class="checks">
-        <div class="check-row"><input type="checkbox" name="consentimiento" id="consentimiento" required><label for="consentimiento">Autorizo el uso de mis datos para gestionar este registro y recibir informaci&oacute;n operativa del evento. * <a href="#" id="privacy-toggle" aria-expanded="false">Ver aviso de datos</a>.</label></div>
-        <div class="privacy" id="privacy-details" hidden><strong>Uso de tus datos.</strong> La Cuna Records recopila nombre, correo, WhatsApp e Instagram opcional para gestionar inscripciones, identificar duplicados, informar novedades sobre este evento y atender solicitudes. Para consultas, actualizaci&oacute;n o eliminaci&oacute;n, contacta a <a href="https://www.instagram.com/lacunarecordz/" target="_blank" rel="noopener noreferrer">@lacunarecordz</a>. La lista de personas inscritas no es p&uacute;blica.</div>
-        <div class="check-row secondary"><input type="checkbox" name="novedades" id="novedades"><label for="novedades">Tambi&eacute;n quiero recibir noticias de pr&oacute;ximos eventos de La Cuna Records (opcional).</label></div>
+        <div class="check-row"><input type="checkbox" name="consentimiento" id="consentimiento" required><label for="consentimiento">Autorizo el uso de mis datos para gestionar este registro y recibir información operativa del evento. * <a href="#" id="privacy-toggle" aria-expanded="false">Ver aviso de datos</a>.</label></div>
+        <div class="privacy" id="privacy-details" hidden><strong>Uso de tus datos.</strong> La Cuna Records recopila nombre, correo, WhatsApp e Instagram opcional para gestionar inscripciones, identificar duplicados, informar novedades sobre este evento y atender solicitudes. Para consultas, actualización o eliminación, contacta a <a href="https://www.instagram.com/lacunarecordz/" target="_blank" rel="noopener noreferrer">@lacunarecordz</a>. La lista de personas inscritas no es pública.</div>
+        <div class="check-row"><input type="checkbox" name="novedades" id="novedades"><label for="novedades">También quiero recibir noticias de próximos eventos de La Cuna Records (opcional).</label></div>
       </div>
       <input type="hidden" id="origen" value="">
       <input type="hidden" id="medio" value="">
       <input type="hidden" id="campana" value="">
       <input type="hidden" id="contenido" value="">
-      <button class="submit" id="submit-button" type="submit"><span id="submit-label">ENVIAR MI REGISTRO</span><span aria-hidden="true">&#8599;</span></button>
-      <div id="notice" class="notice" role="alert" aria-live="assertive"></div>
+      <button class="submit" id="submit-button" type="submit"><span id="submit-label">Enviar mi registro</span><span aria-hidden="true">↗</span></button>
+      <div id="notice" class="error-notice" role="alert" aria-live="assertive"></div>
       <p class="form-caption">SIN PAGOS EN ESTE FORMULARIO. COVER EN EL EVENTO: $10.000 COP. REGISTRARSE NO GARANTIZA EL INGRESO.</p>
     </form>
   </div>
-  <div class="success" id="success-view" aria-live="polite" tabindex="-1"><div class="success-star">&#10022;</div><h2>YA EST&Aacute;S<br>EN LA LISTA.</h2><p>Tu registro fue guardado. Conserva el siguiente c&oacute;digo para identificar tu inscripci&oacute;n.</p><div class="success-code"><span id="confirmation-code"></span><button class="copy" id="copy-code" type="button">COPIAR</button></div><p class="success-foot">Nos vemos el 28 de noviembre. Recuerda: el registro no es una entrada pagada ni garantiza el acceso. Sigue a <a href="https://www.instagram.com/lacunarecordz/" target="_blank" rel="noopener noreferrer" style="color:var(--accent)">@lacunarecordz</a> para informaci&oacute;n oficial.</p></div>
+
+  <div class="success" id="success-view" aria-live="polite" tabindex="-1">
+    <div class="success-star">✦</div>
+    <h2>Ya estás<br>en la lista.</h2>
+    <p>Tu registro fue guardado. Conserva el siguiente código para identificar tu inscripción.</p>
+    <div class="success-code"><span id="confirmation-code"></span><button class="copy" id="copy-code" type="button">Copiar</button></div>
+    <p class="success-foot">Nos vemos el 28 de noviembre. Recuerda: el registro no es una entrada pagada ni garantiza el acceso. Sigue a <a href="https://www.instagram.com/lacunarecordz/" target="_blank" rel="noopener noreferrer" style="color:var(--green)">@lacunarecordz</a> para información oficial.</p>
+  </div>
+
   <script>
   (function(){
     'use strict';
@@ -52,7 +58,7 @@
     var privacy=document.getElementById('privacy-details');
     var toggle=document.getElementById('privacy-toggle');
     function message(text){notice.textContent=text;notice.classList.add('visible');}
-    function reset(){btn.disabled=false;label.textContent='ENVIAR MI REGISTRO';}
+    function reset(){btn.disabled=false;label.textContent='Enviar mi registro';}
     toggle.addEventListener('click',function(e){e.preventDefault();privacy.hidden=!privacy.hidden;toggle.setAttribute('aria-expanded',String(!privacy.hidden));});
     form.addEventListener('submit',function(e){
       e.preventDefault();notice.classList.remove('visible');
@@ -70,12 +76,11 @@
         campana:document.getElementById('campana').value,
         contenido:document.getElementById('contenido').value
       };
-      // En GitHub esto es solo la vista previa, nunca fingimos haber guardado datos.
       if(!window.google||!google.script||!google.script.run){
-        message('Vista previa: todavia no esta conectado Google Sheets. No se guardo ningun dato.');
+        message('Vista previa: todavía no está conectado Google Sheets. No se guardó ningún dato.');
         return;
       }
-      btn.disabled=true;label.innerHTML='GUARDANDO<span class="loading-dot">...</span>';
+      btn.disabled=true;label.innerHTML='Guardando<span class="loading-dot">...</span>';
       google.script.run
         .withSuccessHandler(function(res){
           if(!res||!res.ok){message((res&&res.mensaje)||'No fue posible confirmar el registro.');reset();return;}
@@ -83,13 +88,13 @@
           document.getElementById('form-view').hidden=true;
           var success=document.getElementById('success-view');success.classList.add('visible');success.focus();
         })
-        .withFailureHandler(function(){message('No hay confirmacion de guardado. Contacta al organizador antes de volver a intentar.');reset();})
+        .withFailureHandler(function(){message('No hay confirmación de guardado. Contacta al organizador antes de volver a intentar.');reset();})
         .registrar(data);
     });
     document.getElementById('copy-code').addEventListener('click',function(){
       var codigo=document.getElementById('confirmation-code').textContent;
-      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(codigo).then(function(){document.getElementById('copy-code').textContent='COPIADO';});}
-      else{document.getElementById('copy-code').textContent='GUARDA EL CODIGO';}
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(codigo).then(function(){document.getElementById('copy-code').textContent='Copiado';});}
+      else{document.getElementById('copy-code').textContent='Guarda el código';}
     });
   })();
   </script>
