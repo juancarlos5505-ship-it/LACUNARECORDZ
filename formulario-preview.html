@@ -4,99 +4,108 @@
   <base target="_blank">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Pirata+One&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Pirata+One&display=swap');
-    :root{--bg:#071009;--panel:rgba(11,16,13,.96);--panel-2:rgba(255,255,255,.03);--line:rgba(255,255,255,.10);--text:#f0f0ea;--mute:#a2aaa3;--green:#5cff92;--red:#ff4f42}
-    *{box-sizing:border-box}html,body{margin:0;padding:0}body{font-family:'Archivo',Arial,sans-serif;color:var(--text);background:radial-gradient(circle at 10% 0%,rgba(92,255,146,.07),transparent 25%),radial-gradient(circle at 90% 15%,rgba(255,79,66,.06),transparent 22%),var(--bg);-webkit-font-smoothing:antialiased;padding:24px}.shell{background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:26px;padding:18px 18px 22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}.shell-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:20px}.micro{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#d2d7d0;display:inline-flex;align-items:center;gap:10px}.dot{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;box-shadow:0 0 14px rgba(92,255,146,.4)}.dots{display:flex;gap:8px}.dots i{display:block;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.16)}.dots i:first-child{background:var(--red)}.dots i:nth-child(2){background:var(--green)}.intro h1{font-family:'Pirata One',Georgia,serif;font-size:56px;line-height:.88;font-weight:400;margin:0 0 10px}.intro p{font-size:14px;line-height:1.65;color:#cad0ca;margin:0 0 20px}.notice{display:block;padding:12px 14px;font-size:12px;line-height:1.55;margin:0 0 18px;color:#ffd2c7;background:rgba(95,25,21,.38);border-left:3px solid var(--red);border-radius:12px}.fields{display:grid;gap:14px}.field label{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#d9ddd8;margin-bottom:10px}.field .optional{color:var(--mute)}.field input{width:100%;height:54px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.03);color:var(--text);padding:0 16px;font-size:14px;outline:none;transition:border-color .2s,box-shadow .2s,background .2s}.field input:focus{border-color:rgba(92,255,146,.55);box-shadow:0 0 0 3px rgba(92,255,146,.09);background:rgba(255,255,255,.05)}.field input::placeholder{color:#7d857d}.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field input:invalid:not(:placeholder-shown){border-color:rgba(255,79,66,.6)}.checks{margin:20px 0;border-top:1px solid var(--line);padding-top:18px}.check-row{display:flex;align-items:flex-start;gap:11px;margin-bottom:14px}.check-row input{appearance:none;margin:4px 0 0;flex:none;width:18px;height:18px;border:1px solid rgba(255,255,255,.22);border-radius:4px;background:#0d1610;cursor:pointer}.check-row input:checked{background:var(--green);border-color:var(--green);box-shadow:inset 0 0 0 4px #0d1610}.check-row label{font-size:12px;line-height:1.55;color:#c7cdc6;cursor:pointer}.check-row label a{color:var(--green);text-decoration:underline;text-underline-offset:3px}.privacy{margin:8px 0 18px;padding:15px 16px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:16px;font-size:12px;line-height:1.65;color:#bbc3ba}.privacy strong{color:#fff}.privacy[hidden]{display:none}.privacy a{color:var(--green)}.submit{border:0;width:100%;min-height:56px;border-radius:18px;background:linear-gradient(180deg,#6bffa2,#4fe484);color:#091109;font:700 11px 'Archivo',Arial,sans-serif;display:flex;align-items:center;justify-content:space-between;cursor:pointer;letter-spacing:.08em;text-transform:uppercase;padding:16px 18px;transition:transform .2s,filter .2s}.submit:hover{transform:translateY(-1px);filter:saturate(1.06)}.submit:disabled{opacity:.65;cursor:progress}.submit span:last-child{font-size:20px;line-height:1}.form-caption{color:#8f978f;font-size:10px;line-height:1.7;letter-spacing:.12em;text-transform:uppercase;margin:15px 0 0}.error-notice{display:none;padding:13px 14px;font-size:12px;line-height:1.55;margin:14px 0;color:#ffcabf;background:rgba(90,28,23,.4);border-left:2px solid var(--red);border-radius:12px}.error-notice.visible{display:block}.success{display:none;padding:40px 6px 16px}.success.visible{display:block}.success-star{font-size:40px;color:var(--green);line-height:1}.success h2{font-family:'Pirata One',Georgia,serif;font-size:58px;line-height:.85;font-weight:400;margin:14px 0 14px}.success p{color:#c3cbc3;font-size:14px;line-height:1.65}.success-code{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:18px;margin:21px 0 15px;padding:18px;display:flex;align-items:center;justify-content:space-between;gap:10px;word-break:break-all}.success-code span{font-size:19px;letter-spacing:.12em;color:var(--green)}.copy{border:0;background:transparent;color:var(--green);font:700 10px 'Archivo',Arial,sans-serif;cursor:pointer;padding:5px;text-transform:uppercase;letter-spacing:.1em}.success-foot{font-size:11px!important;line-height:1.75!important}.honeypot{position:absolute;left:-10000px;top:-10000px;width:1px;height:1px}.loading-dot{display:inline-block;animation:blink 1s infinite}@keyframes blink{50%{opacity:.2}}@media(max-width:620px){body{padding:14px}.shell{padding:14px}.intro h1{font-size:46px}.field-grid{grid-template-columns:1fr}.field input{height:50px}.success h2{font-size:48px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+    :root{--red:#fc392b;--green:#63f8a0;--white:#f6f4f0;--muted:#b9acad;--line:rgba(255,255,255,.16)}
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;min-height:100%;background:#111012;color:var(--white);font-family:'DM Sans',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+    body{padding:6px 3px 8px}
+    .mono,.number-label,.small-top,.form-foot,.error-message,.success-code,.consent-note{font-family:'Space Mono',monospace}
+    .form-top{padding:0 0 16px;display:flex;align-items:center;justify-content:space-between;gap:14px}.form-top span{color:#e8b3ae;font-family:'Space Mono',monospace;letter-spacing:.07em;font-size:10px}
+    .form-top strong{font-family:'Pirata One',Georgia,serif;font-size:35px;font-weight:400;line-height:1;color:#f7eee9;letter-spacing:-.02em}
+    .intro{margin:0 0 19px;color:var(--muted);font-size:13px;line-height:1.5;max-width:400px}.intro strong{color:var(--white)}
+    form{display:grid;gap:14px}
+    .field{display:flex;flex-direction:column;gap:8px}
+    .number-label{color:#e8c4c1;letter-spacing:.03em;font-size:10px;line-height:1.4}
+    .number-label em{font-style:normal;color:var(--red)}
+    .input-wrap{position:relative}
+    input[type=text],input[type=tel],input[type=time]{width:100%;height:54px;background:linear-gradient(130deg,rgba(51,41,45,.7),rgba(32,27,30,.73));border:1px solid rgba(255,255,255,.14);border-radius:13px;color:#fff;padding:0 16px;font-size:14px;outline:none;transition:background .2s,border-color .2s,box-shadow .2s;appearance:auto}
+    input[type=time]{color-scheme:dark;cursor:pointer}
+    input::placeholder{color:#a3999b;opacity:1}
+    input:focus{border-color:rgba(252,71,60,.76);box-shadow:0 0 0 3px rgba(252,57,43,.08);background:#292124}
+    input:user-invalid{border-color:#ce5b58}
+    .time-help{color:#bbaead;font-size:10px;line-height:1.5;margin:0 0 2px}
+    .consents{border-top:1px solid var(--line);margin-top:3px;padding-top:18px;display:grid;gap:11px}
+    .check{display:flex;align-items:flex-start;gap:10px}.check input{flex-shrink:0;margin:3px 0 0;width:17px;height:17px;accent-color:var(--red);cursor:pointer}.check label{font-size:12px;line-height:1.5;color:#cabfc0;cursor:pointer}.check a{color:#ff9189;text-decoration:underline;text-underline-offset:3px}
+    .submit{margin-top:4px;width:100%;min-height:52px;padding:10px 10px 10px 19px;border-radius:24px;border:1px solid #ff6256;color:white;font-weight:800;font-size:13px;background:linear-gradient(145deg,#fb4c40,#e72820);display:flex;align-items:center;justify-content:space-between;gap:8px;cursor:pointer;box-shadow:0 8px 26px rgba(241,40,31,.2),inset 0 1px 0 rgba(255,255,255,.18);transition:transform .22s,filter .22s}
+    .submit:hover{transform:translateY(-2px);filter:brightness(1.1)}.submit:disabled{cursor:wait;opacity:.7}
+    .submit i{font-style:normal;background:rgba(0,0,0,.13);width:29px;height:29px;display:grid;place-items:center;border-radius:50%;font-weight:400;font-size:18px}
+    .form-foot{color:#a7999b;line-height:1.55;font-size:9px;letter-spacing:.01em;margin:10px 0 0}
+    .error-message{display:none;margin-top:3px;background:rgba(252,57,43,.13);border:1px solid rgba(252,57,43,.34);border-radius:12px;color:#ffbab5;padding:12px 13px;font-size:10px;line-height:1.5}.error-message.active{display:block}
+    .demo-message{padding:9px 12px;margin:0 0 15px;border:1px solid rgba(252,57,43,.28);border-radius:9px;background:rgba(252,57,43,.09);color:#ffaaa6;font-size:11px;line-height:1.5}
+    .bottrap{position:absolute;left:-9999px;top:auto;height:1px;width:1px;overflow:hidden}
+    .success{display:none;text-align:left;padding:40px 5px 25px}.success.active{display:block}.success-icon{font-size:36px;color:var(--green)}.success h2{font-family:'Pirata One',Georgia,serif;font-weight:400;font-size:60px;line-height:.95;margin:10px 0}.success p{font-size:14px;line-height:1.55;color:#c9bec0}.success-code{border:1px solid rgba(99,248,160,.36);border-radius:12px;background:rgba(99,248,160,.06);display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px;color:#81ffae;font-size:18px}.copy-code{background:none;border:0;color:#e6e8db;cursor:pointer;font-size:10px;padding:8px}.success a{color:#ffafa5}
+    @media(max-width:430px){.form-top strong{font-size:32px}.check label{font-size:11px}.intro{font-size:12px}.success h2{font-size:49px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
   </style>
 </head>
 <body>
-  <div id="form-view" class="shell">
-    <div class="shell-top"><span class="micro"><span class="dot"></span> ENTRA A LA LISTA</span><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></div>
-    <div class="intro"><h1>Lista de acceso<br>/ 002</h1><p>Completa tu información. Un registro, una persona.<br>Los campos marcados con * son obligatorios.</p></div>
-    <div class="notice">VERSIÓN DE DEMOSTRACIÓN: todavía no está conectado Google Sheets. Aquí no se guardan registros.</div>
-    <form id="entry-form">
-      <div class="fields">
-        <div class="field"><label for="nombre">01 / NOMBRE COMPLETO *</label><input id="nombre" name="nombre" type="text" minlength="3" maxlength="100" placeholder="Tu nombre y apellido" autocomplete="name" required></div>
-        <div class="field-grid">
-          <div class="field"><label for="correo">02 / CORREO ELECTRÓNICO *</label><input id="correo" name="correo" type="email" maxlength="160" placeholder="tu@correo.com" autocomplete="email" required></div>
-          <div class="field"><label for="whatsapp">03 / WHATSAPP *</label><input id="whatsapp" name="whatsapp" type="tel" maxlength="24" minlength="10" placeholder="300 000 0000" autocomplete="tel" required></div>
-        </div>
-        <div class="field"><label for="instagram">04 / INSTAGRAM <span class="optional">(OPCIONAL)</span></label><input id="instagram" name="instagram" type="text" maxlength="45" placeholder="@tuusuario" autocomplete="off"></div>
-        <div class="honeypot" aria-hidden="true"><label for="sitioWeb">No completar</label><input id="sitioWeb" name="sitioWeb" type="text" tabindex="-1" autocomplete="off"></div>
-      </div>
-      <div class="checks">
-        <div class="check-row"><input type="checkbox" name="consentimiento" id="consentimiento" required><label for="consentimiento">Autorizo el uso de mis datos para gestionar este registro y recibir información operativa del evento. * <a href="#" id="privacy-toggle" aria-expanded="false">Ver aviso de datos</a>.</label></div>
-        <div class="privacy" id="privacy-details" hidden><strong>Uso de tus datos.</strong> La Cuna Records recopila nombre, correo, WhatsApp e Instagram opcional para gestionar inscripciones, identificar duplicados, informar novedades sobre este evento y atender solicitudes. Para consultas, actualización o eliminación, contacta a <a href="https://www.instagram.com/lacunarecordz/" target="_blank" rel="noopener noreferrer">@lacunarecordz</a>. La lista de personas inscritas no es pública.</div>
-        <div class="check-row"><input type="checkbox" name="novedades" id="novedades"><label for="novedades">También quiero recibir noticias de próximos eventos de La Cuna Records (opcional).</label></div>
-      </div>
-      <input type="hidden" id="origen" value="">
-      <input type="hidden" id="medio" value="">
-      <input type="hidden" id="campana" value="">
-      <input type="hidden" id="contenido" value="">
-      <button class="submit" id="submit-button" type="submit"><span id="submit-label">Enviar mi registro</span><span aria-hidden="true">↗</span></button>
-      <div id="notice" class="error-notice" role="alert" aria-live="assertive"></div>
-      <p class="form-caption">SIN PAGOS EN ESTE FORMULARIO. COVER EN EL EVENTO: $10.000 COP. REGISTRARSE NO GARANTIZA EL INGRESO.</p>
-    </form>
-  </div>
-
-  <div class="success" id="success-view" aria-live="polite" tabindex="-1">
-    <div class="success-star">✦</div>
-    <h2>Ya estás<br>en la lista.</h2>
-    <p>Tu registro fue guardado. Conserva el siguiente código para identificar tu inscripción.</p>
-    <div class="success-code"><span id="confirmation-code"></span><button class="copy" id="copy-code" type="button">Copiar</button></div>
-    <p class="success-foot">Nos vemos el 28 de noviembre. Recuerda: el registro no es una entrada pagada ni garantiza el acceso. Sigue a <a href="https://www.instagram.com/lacunarecordz/" target="_blank" rel="noopener noreferrer" style="color:var(--green)">@lacunarecordz</a> para información oficial.</p>
-  </div>
-
-  <script>
-  (function(){
-    'use strict';
-    var form=document.getElementById('entry-form');
-    var btn=document.getElementById('submit-button');
-    var label=document.getElementById('submit-label');
-    var notice=document.getElementById('notice');
-    var privacy=document.getElementById('privacy-details');
-    var toggle=document.getElementById('privacy-toggle');
-    function message(text){notice.textContent=text;notice.classList.add('visible');}
-    function reset(){btn.disabled=false;label.textContent='Enviar mi registro';}
-    toggle.addEventListener('click',function(e){e.preventDefault();privacy.hidden=!privacy.hidden;toggle.setAttribute('aria-expanded',String(!privacy.hidden));});
-    form.addEventListener('submit',function(e){
-      e.preventDefault();notice.classList.remove('visible');
-      if(!form.checkValidity()){form.reportValidity();return;}
-      var data={
-        nombre:document.getElementById('nombre').value,
-        correo:document.getElementById('correo').value,
-        whatsapp:document.getElementById('whatsapp').value,
-        instagram:document.getElementById('instagram').value,
-        sitioWeb:document.getElementById('sitioWeb').value,
-        consentimiento:document.getElementById('consentimiento').checked,
-        novedades:document.getElementById('novedades').checked,
-        origen:document.getElementById('origen').value,
-        medio:document.getElementById('medio').value,
-        campana:document.getElementById('campana').value,
-        contenido:document.getElementById('contenido').value
-      };
-      if(!window.google||!google.script||!google.script.run){
-        message('Vista previa: todavía no está conectado Google Sheets. No se guardó ningún dato.');
-        return;
-      }
-      btn.disabled=true;label.innerHTML='Guardando<span class="loading-dot">...</span>';
-      google.script.run
-        .withSuccessHandler(function(res){
-          if(!res||!res.ok){message((res&&res.mensaje)||'No fue posible confirmar el registro.');reset();return;}
-          document.getElementById('confirmation-code').textContent=res.codigo;
-          document.getElementById('form-view').hidden=true;
-          var success=document.getElementById('success-view');success.classList.add('visible');success.focus();
-        })
-        .withFailureHandler(function(){message('No hay confirmación de guardado. Contacta al organizador antes de volver a intentar.');reset();})
-        .registrar(data);
-    });
-    document.getElementById('copy-code').addEventListener('click',function(){
-      var codigo=document.getElementById('confirmation-code').textContent;
-      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(codigo).then(function(){document.getElementById('copy-code').textContent='Copiado';});}
-      else{document.getElementById('copy-code').textContent='Guarda el código';}
-    });
-  })();
-  </script>
+<div id="form-view">
+  <div class="form-top"><span>PROTOCOLO / INSCRIPCIÓN</span><strong>Edición 002</strong></div>
+  <p class="intro">Completa tus datos para la lista oficial de <strong>La Casa Abandonada.</strong> Un registro por número de teléfono.</p>
+  <form id="registro" novalidate>
+    <div class="field"><label class="number-label" for="nombre">01 / NOMBRE COMPLETO <em>*</em></label><input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Como aparece en tu documento" maxlength="100" minlength="3" required></div>
+    <div class="field"><label class="number-label" for="telefono">02 / NÚMERO DE TELÉFONO <em>*</em></label><input id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="300 000 0000" maxlength="25" required></div>
+    <div class="field"><label class="number-label" for="hora">03 / HORA ESTIMADA DE ASISTENCIA <em>*</em></label><input id="hora" name="hora" type="time" min="19:00" max="23:59" step="60" required><p class="time-help">Selecciona cualquier hora a partir de las 7:00 p. m., hasta las 11:59 p. m.</p></div>
+    <div class="bottrap" aria-hidden="true"><label for="sitioWeb">No completar</label><input id="sitioWeb" name="sitioWeb" type="text" tabindex="-1" autocomplete="off"></div>
+    <div class="consents">
+      <div class="check"><input id="consentimiento" type="checkbox" required><label for="consentimiento">Autorizo el tratamiento de mis datos para gestionar la inscripción y recibir información operativa del evento. <a href="https://juancarlos5505-ship-it.github.io/LACUNARECORDZ/privacidad.html" target="_blank" rel="noopener noreferrer">Ver privacidad</a>. <strong>*</strong></label></div>
+      <div class="check"><input id="novedades" type="checkbox"><label for="novedades">Deseo recibir novedades de futuros eventos de La Cuna Records (opcional).</label></div>
+    </div>
+    <input id="origen" type="hidden" value=""><input id="medio" type="hidden" value=""><input id="campana" type="hidden" value=""><input id="contenido" type="hidden" value="">
+    <button class="submit" type="submit" id="submit-button"><span id="submit-label">Confirmar inscripción</span><i aria-hidden="true">↗</i></button>
+    <div class="error-message" id="error-message" role="alert" aria-live="assertive"></div>
+  </form>
+  <p class="form-foot">COVER: $10.000 COP. EL REGISTRO NO INCLUYE EL PAGO DEL COVER NI GARANTIZA EL INGRESO.</p>
+</div>
+<div class="success" id="success-view" role="status" aria-live="polite" tabindex="-1">
+  <span class="success-icon">✣</span><h2>Tu nombre<br>está en la lista.</h2>
+  <p>Tu inscripción fue guardada. Conserva este código para identificarla:</p>
+  <div class="success-code"><span id="confirmation-code"></span><button type="button" class="copy-code" id="copy-code">COPIAR</button></div>
+  <p>Nos vemos el 28 de noviembre. Entrada desde las 7:00 p. m. Recuerda: el registro no equivale a una entrada pagada.</p>
+  <p><a href="https://www.instagram.com/lacunarecordz/" target="_blank" rel="noopener noreferrer">@lacunarecordz ↗</a></p>
+</div>
+<script>
+(() => {
+  'use strict';
+  const form = document.getElementById('registro');
+  const msg = document.getElementById('error-message');
+  const button = document.getElementById('submit-button');
+  const label = document.getElementById('submit-label');
+  const input = (id) => document.getElementById(id);
+  const error = (text) => { msg.textContent = text; msg.classList.add('active'); };
+  const reset = () => { button.disabled = false; label.textContent = 'Confirmar inscripción'; };
+  form.addEventListener('submit', (event) => {
+    event.preventDefault(); msg.classList.remove('active');
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    const telefono = input('telefono').value.replace(/\D/g, '');
+    const hora = input('hora').value;
+    if (telefono.length < 10 || telefono.length > 15) { error('Revisa tu número de teléfono (10 a 15 dígitos).'); return; }
+    if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(hora) || hora < '19:00' || hora > '23:59') { error('Selecciona una hora entre las 7:00 y las 11:59 p. m.'); return; }
+    if (!input('consentimiento').checked) { error('Autoriza el tratamiento de datos para continuar.'); return; }
+    if (!window.google || !google.script || !google.script.run) { error('Esta es una vista previa. No se guardó ningún dato; el registro se habilitará al conectar Google Sheets.'); return; }
+    button.disabled = true; label.textContent = 'Guardando registro…';
+    const data = {
+      nombre: input('nombre').value, telefono: input('telefono').value, hora,
+      consentimiento: input('consentimiento').checked, novedades: input('novedades').checked,
+      sitioWeb: input('sitioWeb').value, origen: input('origen').value, medio: input('medio').value,
+      campana: input('campana').value, contenido: input('contenido').value
+    };
+    google.script.run.withSuccessHandler((result) => {
+      if (!result?.ok) { error(result?.mensaje || 'No se pudo registrar.'); reset(); return; }
+      input('confirmation-code').textContent = result.codigo;
+      document.getElementById('form-view').hidden = true;
+      const success = document.getElementById('success-view'); success.classList.add('active'); success.focus();
+    }).withFailureHandler(() => {
+      error('No se pudo confirmar el guardado. Contacta al organizador antes de intentar de nuevo.'); reset();
+    }).registrar(data);
+  });
+  input('copy-code').addEventListener('click', () => {
+    const text = input('confirmation-code').textContent;
+    if (navigator.clipboard?.writeText) navigator.clipboard.writeText(text).then(() => { input('copy-code').textContent = 'COPIADO'; });
+  });
+})();
+</script>
 </body>
 </html>
