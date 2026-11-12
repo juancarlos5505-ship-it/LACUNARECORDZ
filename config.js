@@ -4,5 +4,5 @@
  * No pegues la URL de edicion de Apps Script ni el enlace privado de Google Sheets.
  */
 window.LACUNA_CONFIG = {
-  appScriptUrl: ""
+  appScriptUrl: "https://script.google.com/macros/s/AKfycbxbJUk-uHtezwBzWmUllpsmW_GLVQ0iMB0d4d1KoNp1GbZLHIcN-cRcxNGS8r6nrgLg/exec"
 };
