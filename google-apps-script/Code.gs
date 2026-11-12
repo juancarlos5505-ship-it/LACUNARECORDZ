@@ -7,7 +7,7 @@
 const LACUNA = Object.freeze({
   HOJA: 'Registros_V4',
   EVENTO: 'La Casa Abandonada - Edición II - 28/11/2026',
-  CODIGO: 'LCR',
+  CODIGO: 'LACUNA',
   CUPO_MAXIMO: 0 // 0 = sin límite; configurar solo cuando el cupo esté confirmado.
 });
 
@@ -84,7 +84,9 @@ function registrar(data) {
           return fallo_('Este número de teléfono ya figura en la lista. No es necesario registrarte dos veces.');
         }
       }
-      const codigo = LACUNA.CODIGO + '-' + Utilities.getUuid().replace(/-/g, '').slice(0, 9).toUpperCase();
+      // Consecutivo protegido por LockService: sin duplicaciones entre registros simultaneos.
+      const secuencia = siguienteCodigo_(hoja, cantidad);
+      const codigo = secuencia.codigo;
       hoja.appendRow([
         new Date(), codigo, seguro_(nombre), seguro_(telefono), seguro_(hora),
         seguro_(corto_(data.origen, 80)), seguro_(corto_(data.medio, 80)),
@@ -92,12 +94,38 @@ function registrar(data) {
         'Preinscrito', 'Sí', novedades ? 'Sí' : 'No', LACUNA.EVENTO
       ]);
       SpreadsheetApp.flush();
+      // Persiste el ultimo numero para evitar reutilizarlo si se borran filas.
+      PropertiesService.getScriptProperties().setProperty('LACUNA_ULTIMO_CONSECUTIVO', String(secuencia.numero));
       return { ok: true, codigo, mensaje: 'Registro guardado correctamente.' };
     } finally { candado.releaseLock(); }
   } catch (e) {
     console.error('Error de inscripción', e && e.stack ? e.stack : String(e));
     return fallo_('No fue posible verificar el guardado. Contacta al organizador antes de repetir el registro.');
   }
+}
+
+
+/**
+ * El siguiente codigo sera LACUNA001, LACUNA002, LACUNA003...
+ * Considera los codigos ya emitidos y el mayor consecutivo persistido.
+ * Los codigos antiguos LCR-XXXXXXXXX siguen siendo validos y no se modifican.
+ * Debe llamarse dentro del bloqueo de LockService en registrar().
+ */
+function siguienteCodigo_(hoja, cantidad) {
+  const propiedad = PropertiesService.getScriptProperties().getProperty('LACUNA_ULTIMO_CONSECUTIVO');
+  const guardado = Number(propiedad);
+  let maximo = Number.isSafeInteger(guardado) && guardado > 0 ? guardado : 0;
+  if (cantidad > 0) {
+    const filas = hoja.getRange(2, 2, cantidad, 1).getDisplayValues();
+    filas.forEach(fila => {
+      const encontrado = /^LACUNA(\d+)$/i.exec(String(fila[0]).trim());
+      if (!encontrado) return;
+      const n = Number(encontrado[1]);
+      if (Number.isSafeInteger(n)) maximo = Math.max(maximo, n);
+    });
+  }
+  const numero = maximo + 1;
+  return { numero, codigo: LACUNA.CODIGO + String(numero).padStart(3, '0') };
 }
 
 function hoja_() {
