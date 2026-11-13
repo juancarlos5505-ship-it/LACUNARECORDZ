@@ -26,6 +26,60 @@
     setupWarning.hidden = false;
   }
 
+  // El navegador integrado de Instagram puede impedir que cargue Google Apps Script en un iframe.
+  // Solo mostramos instrucciones; no cambiamos el formulario ni el backend de inscripciones.
+  const browserHelp = document.getElementById('instagram-browser-help');
+  const browserHelpTrigger = document.getElementById('browser-help-trigger');
+  const copyBrowserLink = document.getElementById('copy-browser-link');
+  const copyBrowserStatus = document.getElementById('browser-copy-status');
+  const browserPageUrl = document.getElementById('browser-page-url');
+  const isInstagramBrowser = /Instagram|IG_IAB/i.test(navigator.userAgent || '');
+  const publicPageUrl = new URL(window.location.href);
+  publicPageUrl.hash = '';
+  const pageLink = publicPageUrl.href;
+  if (browserPageUrl) browserPageUrl.textContent = pageLink;
+
+  function toggleBrowserHelp(show) {
+    if (!browserHelp) return;
+    browserHelp.hidden = !show;
+    if (frame) frame.hidden = show;
+    if (fallbackLink) fallbackLink.hidden = show;
+    if (browserHelpTrigger) {
+      browserHelpTrigger.setAttribute('aria-expanded', String(show));
+      browserHelpTrigger.textContent = show ? 'VOLVER AL FORMULARIO ↗' : '¿NO CARGA DESDE INSTAGRAM? VER INSTRUCCIONES ↗';
+      browserHelpTrigger.hidden = isInstagramBrowser && show;
+    }
+  }
+  browserHelpTrigger?.addEventListener('click', () => toggleBrowserHelp(browserHelp?.hidden));
+  if (isInstagramBrowser) toggleBrowserHelp(true);
+
+  copyBrowserLink?.addEventListener('click', async () => {
+    let copied = false;
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(pageLink);
+        copied = true;
+      }
+    } catch (_) {}
+    if (!copied) {
+      const field = document.createElement('textarea');
+      field.value = pageLink;
+      field.setAttribute('readonly', '');
+      field.style.position = 'fixed';
+      field.style.opacity = '0';
+      document.body.appendChild(field);
+      field.focus();
+      field.select();
+      try { copied = document.execCommand('copy'); } catch (_) {}
+      field.remove();
+    }
+    if (copyBrowserStatus) {
+      copyBrowserStatus.textContent = copied
+        ? 'Enlace copiado. Abre Safari o Chrome y pégalo en la barra de direcciones.'
+        : 'No se pudo copiar automáticamente. Mantén presionada la dirección de abajo para copiarla.';
+    }
+  });
+
   function openRegister() {
     if (!modal) return;
     previousFocus = document.activeElement;
