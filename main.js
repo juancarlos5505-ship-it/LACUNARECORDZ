@@ -10,6 +10,7 @@
   const openers = document.querySelectorAll('[data-open-register]');
   const closers = modal?.querySelectorAll('[data-close-register]') || [];
   let previousFocus = null;
+  let savedScrollY = 0;
 
   const endpoint = String(window.LACUNA_CONFIG?.appScriptUrl || '').trim();
   const endpointValid = /^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec(?:\?.*)?$/.test(endpoint);
@@ -41,6 +42,7 @@
 
   function toggleBrowserHelp(show) {
     if (!browserHelp) return;
+    modal?.classList.toggle('show-browser-help', show);
     browserHelp.hidden = !show;
     if (frame) frame.hidden = show;
     if (fallbackLink) fallbackLink.hidden = show;
@@ -83,8 +85,14 @@
   function openRegister() {
     if (!modal) return;
     previousFocus = document.activeElement;
+    savedScrollY = window.scrollY;
     modal.hidden = false;
     document.body.classList.add('has-modal');
+    if (window.matchMedia('(max-width: 650px)').matches) {
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${savedScrollY}px`;
+      document.body.style.width = '100%';
+    }
     window.requestAnimationFrame(() => {
       const closeButton = modal.querySelector('.modal-close');
       if (dialog) dialog.scrollTop = 0;
@@ -96,7 +104,13 @@
     if (!modal) return;
     modal.hidden = true;
     document.body.classList.remove('has-modal');
-    if (previousFocus && typeof previousFocus.focus === 'function') previousFocus.focus();
+    if (document.body.style.position === 'fixed') {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo({ top: savedScrollY, behavior: 'instant' });
+    }
+    if (previousFocus && typeof previousFocus.focus === 'function') previousFocus.focus({ preventScroll: true });
   }
 
   openers.forEach((button) => button.addEventListener('click', openRegister));

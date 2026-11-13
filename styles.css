@@ -144,3 +144,31 @@ img{display:block;max-width:100%}
 .browser-copy-status:empty{display:none}
 .browser-page-url{margin:0;color:#aba0a2;font-family:var(--mono);font-size:9px;overflow-wrap:anywhere;user-select:text;-webkit-user-select:text}
 @media(max-width:650px){.instagram-browser-help{padding:19px 15px 17px;gap:15px}.instagram-browser-help h3{font-size:32px}.browser-help-steps li{padding:11px 10px}.modal-browser-help-trigger{font-size:9px}}
+
+
+/* Mejora mobile V4: modal estable con una sola zona de desplazamiento. */
+.mobile-quick-nav{display:none}
+@media(max-width:650px){
+ .registration-modal{inset:0;width:100%;height:100vh;height:100dvh;padding:0;overflow:hidden;overscroll-behavior:contain;background:#0b080a}
+ .registration-modal .modal-backdrop{display:none}
+ .registration-modal .modal-dialog{position:relative;display:flex;flex-direction:column;width:100%;height:100%;max-height:100%;min-height:0;margin:0;overflow:hidden;border:0;border-radius:0;box-shadow:none;animation:none}
+ .registration-modal .modal-aside{flex:0 0 auto;min-height:0;padding:calc(12px + env(safe-area-inset-top)) 18px 13px;gap:8px}
+ .registration-modal .modal-aside-top{padding-right:42px}
+ .registration-modal .modal-aside-top img{height:43px}
+ .registration-modal .modal-headline{display:block}
+ .registration-modal .modal-headline h2{font-size:clamp(32px,9.5vw,42px);line-height:.92;margin:4px 0 0}
+ .registration-modal .modal-close{position:absolute;top:calc(16px + env(safe-area-inset-top));right:16px;width:40px;height:40px}
+ .registration-modal .modal-form-wrap{flex:1 1 0;min-height:0;width:100%;padding:14px 16px calc(17px + env(safe-area-inset-bottom));overflow:hidden;display:flex;flex-direction:column;overscroll-behavior-y:contain;-webkit-overflow-scrolling:touch}
+ .registration-modal .modal-form-heading{flex:0 0 auto;margin:0 0 13px;padding:0 0 11px}
+ .registration-modal .modal-browser-help-trigger{flex:0 0 auto;margin:0 0 11px}
+ .registration-modal .modal-form-wrap iframe:not([hidden]){display:block;flex:1 1 0;min-height:0;height:100%;width:100%;border-radius:10px}
+ .registration-modal .modal-external{display:block;flex:0 0 auto;margin-top:10px;padding:7px 0 0;font-size:10px;line-height:1.4;text-align:center}
+ .registration-modal.show-browser-help .modal-form-wrap{overflow-y:auto;overflow-x:hidden;touch-action:pan-y}
+ .registration-modal .instagram-browser-help{flex:0 0 auto;width:100%;min-width:0}
+ .mobile-quick-nav{position:fixed;left:50%;bottom:calc(12px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:80;width:min(345px,calc(100% - 30px));min-height:56px;display:flex;gap:4px;padding:6px;border:1px solid rgba(255,255,255,.18);border-radius:19px;background:rgba(18,13,17,.95);box-shadow:0 14px 45px rgba(0,0,0,.5),0 0 26px rgba(219,36,28,.13);-webkit-backdrop-filter:blur(17px);backdrop-filter:blur(17px)}
+ .mobile-quick-nav a,.mobile-quick-nav button{flex:1 1 0;min-width:0;display:flex;justify-content:center;align-items:center;min-height:44px;padding:10px 6px;border:0;border-radius:13px;background:transparent;color:#e6dbda;font-family:var(--mono);font-size:10px;font-weight:700;line-height:1.2;white-space:nowrap;text-align:center}
+ .mobile-quick-nav button{background:linear-gradient(120deg,#e7382c,#a61a1a);color:#fff}
+ .mobile-quick-nav a:active,.mobile-quick-nav button:active{transform:scale(.98)}
+ body.has-modal .mobile-quick-nav{display:none}
+ .closing{padding-bottom:calc(98px + env(safe-area-inset-bottom))}
+}
