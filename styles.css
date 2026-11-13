@@ -172,3 +172,36 @@ img{display:block;max-width:100%}
  body.has-modal .mobile-quick-nav{display:none}
  .closing{padding-bottom:calc(98px + env(safe-area-inset-bottom))}
 }
+
+/* LC/002 — Beneficio de acceso: mujeres gratis hasta las 11:00 p. m. */
+.women-entry-banner{position:relative;display:flex;align-items:center;gap:16px;max-width:560px;margin-top:23px;padding:17px 20px;overflow:hidden;border:1px solid rgba(252,90,79,.5);border-radius:20px;background:radial-gradient(circle at 0% 40%,rgba(220,43,36,.23),transparent 50%),linear-gradient(116deg,rgba(41,20,23,.95),rgba(16,12,15,.91));box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 13px 38px rgba(0,0,0,.24)}
+.women-entry-banner::before{position:absolute;content:'';inset:0 auto 0 0;width:3px;background:linear-gradient(180deg,#f85f52,#a91417)}
+.women-entry-banner__symbol{display:grid;flex:0 0 45px;place-items:center;width:45px;height:45px;border:1px solid rgba(252,91,80,.48);border-radius:14px;background:rgba(248,56,44,.12);color:#ff756c;font-size:25px;text-shadow:0 0 20px rgba(252,57,43,.5)}
+.women-entry-banner__content{display:flex;min-width:0;flex-direction:column;gap:5px}
+.women-entry-banner__kicker,.women-entry-banner__time{font-family:var(--mono);font-size:10px;letter-spacing:.08em}
+.women-entry-banner__kicker{color:#f6aaa3}
+.women-entry-banner__content strong{font-size:clamp(21px,2.3vw,30px);line-height:1.12;letter-spacing:-.055em;font-weight:800}
+.women-entry-banner__content em{font-style:normal;color:#ff6d60}
+.women-entry-banner__time{color:#efe4e3}
+.women-entry-banner__time b{color:var(--green);font-weight:700}
+.women-entry-detail{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:18px;padding:18px 23px;border:1px solid rgba(248,75,65,.35);border-radius:16px;background:linear-gradient(110deg,rgba(124,25,28,.23),rgba(26,18,22,.8));box-shadow:inset 0 1px 0 rgba(255,255,255,.055)}
+.women-entry-detail__label{flex:0 0 auto;display:flex;align-items:center;gap:8px;color:#ff9a90;font-family:var(--mono);font-size:10px;letter-spacing:.08em}
+.women-entry-detail__label span{font-size:17px;color:var(--red)}
+.women-entry-detail strong{font-size:clamp(13px,1.3vw,17px);font-weight:800;letter-spacing:.01em;color:#fff}
+.women-entry-detail strong span{color:var(--green)}
+@media(max-width:650px){
+ .hero{padding-bottom:140px}
+ .women-entry-banner{gap:11px;margin-top:18px;padding:14px 12px;border-radius:15px}
+ .women-entry-banner__symbol{flex-basis:36px;width:36px;height:36px;font-size:20px;border-radius:11px}
+ .women-entry-banner__kicker{font-size:8px}
+ .women-entry-banner__content strong{font-size:clamp(19px,5.4vw,24px)}
+ .women-entry-banner__time{font-size:10px;letter-spacing:.02em}
+ .hero-quick-cards{margin-top:25px}
+ .women-entry-detail{align-items:flex-start;gap:8px;margin-top:12px;padding:15px 14px;border-radius:14px}
+ .women-entry-detail__label{font-size:9px}
+ .women-entry-detail strong{width:100%;font-size:14px;line-height:1.45}
+}
+@media(max-width:380px){
+ .women-entry-banner__content strong{font-size:18px}
+ .women-entry-banner__kicker{font-size:7.5px}
+}
